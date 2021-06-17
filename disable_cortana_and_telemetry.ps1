@@ -73,5 +73,20 @@ Set-ItemProperty "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advan
 # Disable Hiding of Known File Extensions
 Set-ItemProperty "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" "HideFileExt" 0
 
-#Disable Hibernate
+# Disable Hibernate
 powercfg.exe /hibernate off
+powercfg.exe -x -monitor-timeout-ac 0
+powercfg.exe -x -monitor-timeout-dc 0
+powercfg.exe -x -disk-timeout-ac 0
+powercfg.exe -x -disk-timeout-dc 0
+powercfg.exe -x -standby-timeout-ac 0
+powercfg.exe -x -standby-timeout-dc 0
+powercfg.exe -x -hibernate-timeout-ac 0
+powercfg.exe -x -hibernate-timeout-dc 0
+
+# Uninstall Skype
+Get-AppxPackage Microsoft.SkypeApp | Remove-AppxPackage
+
+# Uninstall OneDrive
+taskkill /f /im OneDrive.exe
+Start-Process "$env:windir\SysWOW64\OneDriveSetup.exe" "/uninstall"
