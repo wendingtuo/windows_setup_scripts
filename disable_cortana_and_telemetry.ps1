@@ -26,7 +26,7 @@ If (-Not (Test-Path "HKCU:\Software\Microsoft\InputPersonalization")) {
     New-Item -Path "HKCU:\Software\Microsoft\InputPersonalization" -Force
 }
 Set-ItemProperty "HKCU:\Software\Microsoft\InputPersonalization" "RestrictImplicitTextCollection" 1
-Set-ItemProperty "HKCU:\Software\Microsoft\InputPersonalization" "RestrictImplicitInkCollection" 1
+Set-ItemProperty "HKCU:\Software\Microsoft\InputPer`sonalization" "RestrictImplicitInkCollection" 1
 
 If (-Not (Test-Path "HKCU:\Software\Microsoft\InputPersonalization\TrainedDataStore")) {
     New-Item -Path "HKCU:\Software\Microsoft\InputPersonalization\TrainedDataStore" -Force
@@ -37,7 +37,6 @@ Set-ItemProperty "HKCU:\Software\Microsoft\InputPersonalization\TrainedDataStore
 Set-ItemProperty "HKCU:\Software\Microsoft\Windows\CurrentVersion\Search" "SearchboxTaskbarMode" 0
 
 Write-Host "Removed Cortana"
-Write-Host "++ Run cleanup/rem-sysapps.ps1 to remove cortana exe"
 
 # Disable Telemetry in Software Policies
 If (-Not (Test-Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\DataCollection"))
